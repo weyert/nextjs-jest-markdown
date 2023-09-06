@@ -33,8 +33,8 @@ describe('SiteLayout', () => {
       </SiteLayout>,
     )
 
-    const categoryHeaders = screen.getAllByRole('heading', { level: 3, name: /Categories/i })
-    expect(categoryHeaders).toHaveLength(2)
-    expect(categoryHeaders.shift()).toBeInTheDocument()
+    const closeButton = screen.getByRole('button', { name: /Close sidebar/i })
+    expect(closeButton).toBeDefined()
+    expect(closeButton).toBeVisible()
   })
 })

@@ -1,5 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable @next/next/no-img-element, jsx-a11y/click-events-have-key-events */
 import { Dialog, Transition } from '@headlessui/react'
 import { QuestionMarkCircleIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import { Bars3Icon, LifebuoyIcon, XMarkIcon } from '@heroicons/react/24/outline'

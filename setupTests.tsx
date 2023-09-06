@@ -1,4 +1,4 @@
-import '@testing-library/jest-dom/extend-expect'
+import '@testing-library/jest-dom'
 import { TextDecoder, TextEncoder } from 'node:util'
 
 // From: https://github.com/backstage/backstage/blob/099c6d7b44a87b226f34454c7b725c79d4f0069c/plugins/kubernetes/src/setupTests.ts#L18

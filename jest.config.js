@@ -44,8 +44,53 @@ const customJestConfig = {
   },
 }
 
+// 'react-markdown' is an ESM-only package and there is
+// no love between Jest and ESM - only packages
+//
+// This change ensures all the dependencies of this package will get transpiled
+// to comonjs in the node_modules package
+//
+const esModules = [
+  'react-markdown',
+  'vfile.*',
+  'unist-.+',
+  'rehype.*',
+  'unified',
+  'bail',
+  'is-.+',
+  'trough',
+  'remark-.+',
+  'mdast-util-.+',
+  'micromark.*',
+  'parse-entities',
+  'character-entities',
+  'property-information',
+  'comma-separated-tokens',
+  'hast-.+',
+  'hastscript',
+  'space-separated-tokens',
+  'decode-named-character-reference',
+  'ccount',
+  'escape-string-regexp',
+  'markdown-table',
+  'trim-lines',
+  'web-namespaces',
+  'zwitch',
+  'html-void-elements',
+  'github-slugger',
+  'refractor',
+  'character-.+',
+  'direction',
+  'bcp-47-match',
+  'stringify-entities',
+].join('|')
+
+
 async function jestConfig() {
   const nextJestConfig = await createJestConfig(customJestConfig)()
+  nextJestConfig.transformIgnorePatterns.push(`/node_modules/(?!.pnpm)(?!(${esModules})/)`)
+  nextJestConfig.transformIgnorePatterns.push(`/node_modules/.pnpm/(?!(${esModules})@)'`)
+  console.log(`nextJestConfig:`, nextJestConfig)
   return nextJestConfig
 }
 

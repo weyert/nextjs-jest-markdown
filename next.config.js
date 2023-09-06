@@ -14,6 +14,9 @@ module.exports = withBundleAnalyzer(
     // Disable the Powered-By header
     poweredByHeader: false,
 
+    // Transpile the ESM package
+    transpilePackages: ['react-markdown'],
+
     // Disable eslint checking during next build step
     typescript: {
       ignoreBuildErrors: false,
