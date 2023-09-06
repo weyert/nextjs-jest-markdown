@@ -41,6 +41,7 @@ const customJestConfig = {
   moduleNameMapper: {
     '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
     '^@/layouts/(.*)$': '<rootDir>/src/layouts/$1',
+    '^@/components/(.*)$': '<rootDir>/src/components/$1',
   },
 }
 
@@ -90,7 +91,6 @@ async function jestConfig() {
   const nextJestConfig = await createJestConfig(customJestConfig)()
   nextJestConfig.transformIgnorePatterns.push(`/node_modules/(?!.pnpm)(?!(${esModules})/)`)
   nextJestConfig.transformIgnorePatterns.push(`/node_modules/.pnpm/(?!(${esModules})@)'`)
-  console.log(`nextJestConfig:`, nextJestConfig)
   return nextJestConfig
 }
 
